@@ -22,6 +22,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  form {
+    display: grid;
+    grid-template-columns: 100px 200px;
+  }
 }
 
 .App-link {
