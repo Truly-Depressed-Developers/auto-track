@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { socket } from '../../socket'
+
 import "./LocationDisplay.scss";
 import { Typography } from "@mui/material";
 import {
@@ -20,28 +23,35 @@ interface MapProps extends google.maps.MapOptions {
 }
 
 
-const LocationDisplay = (props: Props): JSX.Element => {
-    const MyMap = withScriptjs(withGoogleMap((props2: google.maps.MapOptions) => 
-    (<GoogleMap
-        defaultZoom={15}
-        defaultCenter={{ lat: props.lat, lng: props.lng }}
-    />)
-    ));
+const LocationDisplay = withScriptjs(withGoogleMap((props: Props): JSX.Element => {
+    // const MyMap = withScriptjs(withGoogleMap((props2: google.maps.MapOptions) => 
+    // (<GoogleMap
+    //     defaultZoom={15}
+    //     defaultCenter={{ lat: props.lat, lng: props.lng }}
+    // />)
+    // ));
+
+    const [lat, setLan] = useState(50.068132);
+    const [lng, setLng] = useState(19.912979);
+    useEffect(() => { socket.on('location', loc => {
+        setLan(parseFloat(loc.split(' ')[0]))
+        setLng(parseFloat(loc.split(' ')[1]))
+    }) }, [socket, lat, lng]);
+
     return (
         <div>
             <Typography>
-                lat: {props.lat}
-                len: {props.lng}
+                lat: {lat}
+                lng: {lng}
             </Typography>
-            <MyMap
-                    googleMapURL={"https://maps.googleapis.com/maps/api/js?key="}
-                    loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `360px` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                />
+            <GoogleMap
+                defaultZoom={15}
+                defaultCenter={{ lat, lng }}
+                center={{ lat, lng }}
+            />
                 {/* <Marker position={{ lat: -34.397, lng: 150.644 }} /> */}
         </div>
     );
-}
+}))
 
 export { LocationDisplay };
