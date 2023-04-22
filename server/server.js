@@ -26,20 +26,18 @@ io.on("connection", (socket) => {
 		console.log("Client disconnected");
 	});
 
-	// socket.on("message", (data) => {
-	// 	const message = data;
-	// 	console.log(message);
-
-	// 	switch (message.action) {
-	// 		case "test":
-	// 			console.log("no siema")
-	// 			break;
-
-	// 		default:
-	// 			break;
-	// 	}
-	// });
-	const params = ["speed"]
+	const params = [
+        "speed", 
+        "fuel", 
+        "range", 
+        "wheelPressure", 
+        "engineOil", 
+        "coolant", 
+        "powerSteeringFluid", 
+        "brakeFluid", 
+        "transmissionFluid", 
+        "windscreenWasherFluid"
+    ]
 	for (const param of params) {
 		socket.on(param, data => socket.to(room).emit(param, data))
 	}
