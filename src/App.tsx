@@ -10,6 +10,7 @@ import { Remote } from './pages/Remote/Remote';
 import { NotFound } from './pages/NotFound/NotFound';
 import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
+import { Actions } from './pages/Remote/Actions/Actions';
 
 function Inside() {
   return (
@@ -20,6 +21,7 @@ function Inside() {
           <Link to="/login">Login</Link>
           <Link to="/car">Car</Link>
           <Link to="/remote">Remote</Link>
+          <Link to="/remote/actions">Actions</Link>
         </div>
       </nav>
       <Routes>
@@ -27,6 +29,7 @@ function Inside() {
         <Route path='/login' element={<Login />} />
         <Route path="/car" element={<Car />} />
         <Route path='/remote' element={<Remote />} />
+        <Route path='/remote/actions' element={<Actions />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
