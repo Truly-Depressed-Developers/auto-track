@@ -6,9 +6,9 @@ import { socket } from '../../socket'
 function Remote() {
     const [speed, setSpeed] = useState(0);
 
-    // useEffect(() => {
-    //     socket.on('speed', (data) => setSpeed(data));
-    // }, [socket, speed]);
+    useEffect(() => {
+        socket.on('speed', (data) => setSpeed(data));
+    }, [socket, speed]);
 
     return (
         <div>

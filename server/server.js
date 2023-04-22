@@ -16,26 +16,33 @@ const io = new socket.Server(server, {
 	}
 });
 
+const room = "room"
+
 io.on("connection", (socket) => {
+	socket.join(room)
 	console.log("New client connected");
 
 	socket.on("disconnect", () => {
 		console.log("Client disconnected");
 	});
 
-	socket.on("message", (data) => {
-		const message = data;
-		console.log(message);
+	// socket.on("message", (data) => {
+	// 	const message = data;
+	// 	console.log(message);
 
-		switch (message.action) {
-			case "test":
-				console.log("no siema")
-				break;
+	// 	switch (message.action) {
+	// 		case "test":
+	// 			console.log("no siema")
+	// 			break;
 
-			default:
-				break;
-		}
-	});
+	// 		default:
+	// 			break;
+	// 	}
+	// });
+	const params = ["speed"]
+	for (const param of params) {
+		socket.on(param, data => {socket.to(room).emit(param, data))
+	}
 });
 
 server.listen(port, () => {

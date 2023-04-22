@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Car.scss';
+import { socket } from '../../socket';
 
 function Car() {
   const [speed, setSpeed] = useState(50);
@@ -11,14 +12,15 @@ function Car() {
 
 
   useEffect(()=>{
-    // fetch()
-    console.log(`${speed}`)
-  }, [speed])
+    socket.emit("speed", speed)
+    socket.emit("message", {"speed" : speed})
+
+  }, [speed, socket])
 
   useEffect(()=>{
     // fetch()
-    console.log(`${fuel}`)
-  }, [fuel])
+    socket.emit("fuel", fuel)
+  }, [fuel, socket])
 
   useEffect(()=>{
     // fetch()
