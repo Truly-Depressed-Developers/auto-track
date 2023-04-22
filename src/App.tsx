@@ -11,6 +11,7 @@ import { NotFound } from './pages/NotFound/NotFound';
 import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
 import { Actions } from './pages/Remote/Actions/Actions';
+import { State } from './pages/Remote/State/State';
 import { Register } from './pages/Register/Register';
 export const MyContextLogin = React.createContext<ContextTypeLogin | null>(null);
 export const MyContextRegister = React.createContext<ContextTypeRegister | null>(null);
@@ -33,33 +34,35 @@ function Inside() {
   return (
     <div id="App">
       <nav className='main'>
-        <div>username app: {username}</div>
-        <div>loggedIn: {loggedIn}</div>
-        <div id="left">
+        {/* <div>username app: {username}</div>
+        <div>loggedIn: {loggedIn}</div> */}
+        {/* <div id="left">
           <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
           <Link to="/car">Car</Link>
+          <Link to="/remote/login">Login</Link>
+          <Link to="/remote/register">Register</Link>
           <Link to="/remote">Remote</Link>
           <Link to="/remote/actions">Actions</Link>
-        </div>
+        </div> */}
       </nav>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={
-          <MyContextLogin.Provider value={{ username, setUsername, loggedIn, setLoggedIn }}>
-            <Login />
-          </MyContextLogin.Provider>
-        } />
-        <Route path='/register' element={
-          <MyContextRegister.Provider value={{ username, setUsername }}>
-
-            <Register />
-          </MyContextRegister.Provider>
-        } />
+        
         <Route path="/car" element={<Car />} />
-        <Route path='/remote' element={<Remote />} />
-        <Route path='/remote/actions' element={<Actions />} />
+        <Route path='remote' element={<Remote />}> 
+            <Route path='state' element={<State />} />
+            <Route path='actions' element={<Actions />} />
+            <Route path='login' element={
+                <MyContextLogin.Provider value={{ username, setUsername, loggedIn, setLoggedIn }}>
+                    <Login />
+                </MyContextLogin.Provider>
+            } />
+            <Route path='register' element={
+              <MyContextRegister.Provider value={{ username, setUsername }}>
+                <Register />
+              </MyContextRegister.Provider>
+            } />
+        </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
