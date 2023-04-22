@@ -9,7 +9,7 @@ const SpeedDisplay = (props: Props): JSX.Element => {
     return (
         <div>
             <Typography>
-                Prędkość: {props.speed} km/h
+                Speed: {props.speed} km/h
             </Typography>
         </div>
     );

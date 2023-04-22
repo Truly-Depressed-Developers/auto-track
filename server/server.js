@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
 		console.log("Client disconnected");
 	});
 
+
 	socket.on("login", (data) => {
 		let success = 0;
 		data.username == authentication.username && data.password == authentication.password ? success = 1 : 0;
@@ -48,9 +49,21 @@ io.on("connection", (socket) => {
 		console.log("actioned", "username", authentication.username, "password", authentication.password)
 	});
 
-	const params = ["speed"]
+	const params = [
+        "speed", 
+        "fuel", 
+        "range", 
+        "wheelPressure", 
+        "engineOil", 
+        "coolant", 
+        "powerSteeringFluid", 
+        "brakeFluid", 
+        "transmissionFluid", 
+        "windscreenWasherFluid"
+    ]
+
 	for (const param of params) {
-		socket.on(param, data => { socket.to(room).emit(param, data) })
+		socket.on(param, data => socket.to(room).emit(param, data))
 	}
 });
 
