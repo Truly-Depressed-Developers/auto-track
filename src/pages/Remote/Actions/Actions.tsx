@@ -90,7 +90,7 @@ function Actions() {
    return (
       <div className='actions-container'>
 
-         <div className="title">
+         <div className="titleActions">
             <div className="mainTitle">ACTION</div>
             <div className="subTitle">KR 7321R</div>
          </div>
