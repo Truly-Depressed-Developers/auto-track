@@ -36,7 +36,8 @@ io.on("connection", (socket) => {
         "powerSteeringFluid", 
         "brakeFluid", 
         "transmissionFluid", 
-        "windscreenWasherFluid"
+        "windscreenWasherFluid",
+        "location",
     ]
 	for (const param of params) {
 		socket.on(param, data => socket.to(room).emit(param, data))

@@ -5,12 +5,15 @@ import { socket } from '../../socket';
 function Car() {
     const [speed, setSpeed] = useState(0);
     useEffect(() => { socket.emit('speed', speed) }, [socket, speed]);
+
     const [fuel, setFuel] = useState(100);
     useEffect(() => { socket.emit('fuel', fuel) }, [socket, fuel]);
     const [range, setRange] = useState(0);
     useEffect(() => { socket.emit('range', range) }, [socket, range]);
+
     const [wheelPressure, setWheelPressure] = useState(0);
     useEffect(() => { socket.emit('wheelPressure', wheelPressure) }, [socket, wheelPressure]);
+
     const [engineOil, setEngineOil] = useState(0);
     useEffect(() => { socket.emit('engineOil', engineOil) }, [socket, engineOil]);
     const [coolant, setCoolant] = useState(0);
@@ -23,6 +26,9 @@ function Car() {
     useEffect(() => { socket.emit('transmissionFluid', transmissionFluid) }, [socket, transmissionFluid]);
     const [windscreenWasherFluid, setWindscreenWasherFluid] = useState(0);
     useEffect(() => { socket.emit('windscreenWasherFluid', windscreenWasherFluid) }, [socket, windscreenWasherFluid]);
+
+    const [location, setLocation] = useState("50.068132 19.912979");
+    useEffect(() => { socket.emit('location', location) }, [socket, location]);
 
   return (
     <div className="App">
@@ -57,6 +63,9 @@ function Car() {
 
           <label htmlFor="windscreenWasherFluid">Windscreen washer fluid</label>
           <input type="number" id="windscreenWasherFluid"  value={windscreenWasherFluid} onChange={e=>{setWindscreenWasherFluid(parseInt(e.target.value))}}/>
+          
+          <label htmlFor="location">Location</label>
+          <input type="text" id="location"  value={location} onChange={e=>{setLocation(e.target.value)}}/>
         </form>
       </header>
     </div>
