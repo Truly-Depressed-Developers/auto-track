@@ -12,7 +12,12 @@ import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
 import { Actions } from './pages/Remote/Actions/Actions';
 import { State } from './pages/Remote/State/State';
+import { Location } from './pages/Remote/Location/Location';
 import { Register } from './pages/Register/Register';
+
+// import 'google-fonts/fonts.css';
+// import 'google-fonts/fonts/Roboto.css';
+
 export const MyContextLogin = React.createContext<ContextTypeLogin | null>(null);
 export const MyContextRegister = React.createContext<ContextTypeRegister | null>(null);
 
@@ -51,6 +56,7 @@ function Inside() {
         <Route path="/car" element={<Car />} />
         <Route path='remote' element={<Remote />}> 
             <Route path='state' element={<State />} />
+            <Route path='location' element={<Location />} />
             <Route path='actions' element={<Actions />} />
             <Route path='login' element={
                 <MyContextLogin.Provider value={{ username, setUsername, loggedIn, setLoggedIn }}>

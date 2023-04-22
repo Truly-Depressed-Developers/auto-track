@@ -1,12 +1,10 @@
 import './State.scss';
 import { SpeedDisplay } from "../../../components/SpeedDisplay";
 import { socket } from '../../../socket';
-import { styled } from '@mui/material/styles';
 import React, { useState, useEffect } from 'react';
 import { FuelDisplay } from "../../../components/FuelDisplay";
 import { WheelPressureDisplay } from "../../../components/WheelPressureDisplay";
 import { FluidsDisplay } from "../../../components/FluidsDisplay";
-import { LocationDisplay } from "../../../components/LocationDisplay";
 
 function State() {
     const [speed, setSpeed] = useState(0);
@@ -32,9 +30,8 @@ function State() {
     const [windscreenWasherFluid, setWindscreenWasherFluid] = useState(0);
     useEffect(() => { socket.on('windscreenWasherFluid', setWindscreenWasherFluid) }, [socket, windscreenWasherFluid]);
 
-    console.log("stateee")
     return (
-        <div>
+        <div className='state-container'>
             <SpeedDisplay speed={speed}/>
             <FuelDisplay fuel={fuel} range={range}/>
             <WheelPressureDisplay pressure={wheelPressure}/>
@@ -46,13 +43,6 @@ function State() {
                 transmissionFluid={transmissionFluid}
                 windscreenWasherFluid={windscreenWasherFluid}
             />
-            {/* <LocationDisplay lat={parseFloat(location.split(" ")[0])} lng={parseFloat(location.split(" ")[1])}/> */}
-            <LocationDisplay
-				googleMapURL={`https://maps.googleapis.com/maps/api/js?key=`}
-				loadingElement={<div style={{ height: `100%` }} />}
-				containerElement={<div style={{ height: `360px`, width: `360px` }} />}
-				mapElement={<div style={{ height: `100%` }} />}
-			/>
         </div>
     );
 }
