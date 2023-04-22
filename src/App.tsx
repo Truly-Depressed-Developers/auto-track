@@ -2,22 +2,15 @@ import './App.scss';
 
 import { ThemeProvider, createTheme } from '@mui/material';
 // import { Routes } from 'react-router';
-// import { Routes } from 'react-router';
-// import { BrowserRouter, Route, Link, Routes } from 'react-router-dom';
+import { Routes } from 'react-router';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 // https://github.com/remix-run/react-router/blob/dev/examples/basic/src/App.tsx
 // https://github.com/remix-run/react-router/issues/8439
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-  
 
 import { Car } from './pages/Car/Car';
 import { Remote } from './pages/Remote/Remote';
 import { NotFound } from './pages/NotFound/NotFound';
+import { Home } from './pages/Home/Home';
 
 function Inside() {
     return (
@@ -30,6 +23,7 @@ function Inside() {
                 </div>
             </nav>
             <Routes>
+                <Route path='/' element={<Home />} />
                 <Route path="/car" element={<Car />} />
                 <Route path='/remote' element={<Remote />} />
                 <Route path='*' element={<NotFound />} />
