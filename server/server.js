@@ -41,7 +41,7 @@ io.on("connection", (socket) => {
 	// });
 	const params = ["speed"]
 	for (const param of params) {
-		socket.on(param, data => {socket.to(room).emit(param, data))
+		socket.on(param, data => socket.to(room).emit(param, data))
 	}
 });
 
