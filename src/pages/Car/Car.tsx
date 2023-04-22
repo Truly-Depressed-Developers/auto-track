@@ -9,8 +9,10 @@ function Car() {
   useEffect(() => { socket.emit('fuel', fuel) }, [socket, fuel]);
   const [range, setRange] = useState(0);
   useEffect(() => { socket.emit('range', range) }, [socket, range]);
-  const [wheelPressure, setWheelPressure] = useState(0);
+  const [wheelPressure, setWheelPressure] = useState<number[]>([0, 0, 0, 0]);
   useEffect(() => { socket.emit('wheelPressure', wheelPressure) }, [socket, wheelPressure]);
+  // const [wheelPressure, setWheelPressure] = useState(0);
+  // useEffect(() => { socket.emit('wheelPressure', wheelPressure) }, [socket, wheelPressure]);
   const [engineOil, setEngineOil] = useState(0);
   useEffect(() => { socket.emit('engineOil', engineOil) }, [socket, engineOil]);
   const [coolant, setCoolant] = useState(0);
@@ -25,13 +27,13 @@ function Car() {
   useEffect(() => { socket.emit('windscreenWasherFluid', windscreenWasherFluid) }, [socket, windscreenWasherFluid]);
 
   const [engine, setEngine] = useState(false);
-  useEffect(() => {socket.on('engine', setEngine); console.log(engine)}, [socket, engine]);
+  useEffect(() => { socket.on('engine', setEngine); console.log(engine) }, [socket, engine]);
 
   const [alarm, setAlarm] = useState(false);
-  useEffect(() => {socket.on('alarm', setAlarm); console.log(alarm)}, [socket, alarm]);
+  useEffect(() => { socket.on('alarm', setAlarm); console.log(alarm) }, [socket, alarm]);
 
   const [autopilot, setAutopilot] = useState(false);
-  useEffect(() => {socket.on('autopilot', setAutopilot); console.log(autopilot)}, [socket, autopilot]);
+  useEffect(() => { socket.on('autopilot', setAutopilot); console.log(autopilot) }, [socket, autopilot]);
 
   return (
     <div className="App">
@@ -47,7 +49,15 @@ function Car() {
           <input type="number" id="range" value={range} onChange={e => { setRange(parseInt(e.target.value)) }} />
 
           <label htmlFor="pressure">Pressure</label>
-          <input type="number" id="pressure" value={wheelPressure} onChange={e => { setWheelPressure(parseInt(e.target.value)) }} />
+          <div>
+            {Array.from(Array(4).keys()).map(ind => (
+              <input type="number" id="pressure" value={wheelPressure[ind]} onChange={e => {
+                if(e.target.value == "") return;
+                wheelPressure[ind] = parseInt(e.target.value);
+                setWheelPressure([...wheelPressure])
+              }} />
+            ))}
+          </div>
 
           <label htmlFor="engineOil">Engine oil</label>
           <input type="number" id="engineOil" value={engineOil} onChange={e => { setEngineOil(parseInt(e.target.value)) }} />

@@ -13,7 +13,7 @@ function Remote() {
     useEffect(() => { socket.on('fuel', setFuel) }, [socket, fuel]);
     const [range, setRange] = useState(0);
     useEffect(() => { socket.on('range', setRange) }, [socket, range]);
-    const [wheelPressure, setWheelPressure] = useState(0);
+    const [wheelPressure, setWheelPressure] = useState([0,0,0,0]);
     useEffect(() => { socket.on('wheelPressure', setWheelPressure) }, [socket, wheelPressure]);
     const [engineOil, setEngineOil] = useState(0);
     useEffect(() => { socket.on('engineOil', setEngineOil) }, [socket, engineOil]);
