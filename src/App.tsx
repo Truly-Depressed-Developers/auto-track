@@ -12,6 +12,10 @@ import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
 import { Actions } from './pages/Remote/Actions/Actions';
 import { Register } from './pages/Register/Register';
+
+// import 'google-fonts/fonts.css';
+// import 'google-fonts/fonts/Roboto.css';
+
 export const MyContextLogin = React.createContext<ContextTypeLogin | null>(null);
 export const MyContextRegister = React.createContext<ContextTypeRegister | null>(null);
 

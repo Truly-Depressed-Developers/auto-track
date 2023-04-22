@@ -35,7 +35,7 @@ function Remote() {
     useEffect(() => { socket.on('location', setLocation) }, [socket, location]);
 
     return (
-        <div>
+        <div className="remote-container">
             <SpeedDisplay speed={speed}/>
             <FuelDisplay fuel={fuel} range={range}/>
             <WheelPressureDisplay pressure={wheelPressure}/>
@@ -47,7 +47,7 @@ function Remote() {
                 transmissionFluid={transmissionFluid}
                 windscreenWasherFluid={windscreenWasherFluid}
             />
-            <LocationDisplay lat={parseFloat(location.split(" ")[0])} lng={parseFloat(location.split(" ")[1])}/>
+            {/* <LocationDisplay lat={parseFloat(location.split(" ")[0])} lng={parseFloat(location.split(" ")[1])}/> */}
         </div>
     );
 }

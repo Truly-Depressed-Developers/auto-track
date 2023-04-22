@@ -7,10 +7,25 @@ type Props = {
 
 const WheelPressureDisplay = (props: Props): JSX.Element => {
     return (
-        <div>
-            <Typography>
+        <div className="wheel-pressure-display">
+            <span>TIRE PRESSURE</span>
+            {/* <Typography>
                 Wheel pressure: {props.pressure.join(", ")} psi
-            </Typography>
+            </Typography> */}
+
+            <div className="pressure-container">
+                <span>{props.pressure[0]}</span>
+                <div className="wheel"></div>
+                <div></div>
+                <div className="wheel"></div>
+                <span>{props.pressure[1]}</span>
+                <span>{props.pressure[2]}</span>
+                <div className="wheel"></div>
+                <div></div>
+                <div className="wheel"></div>
+                <span>{props.pressure[3]}</span>
+            </div>
+
         </div>
     );
 }
