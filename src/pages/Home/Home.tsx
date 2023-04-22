@@ -12,7 +12,8 @@ function Home() {
             <br />
             <Link to="/car">Car</Link>
             <br />
-            <Link to="/remote">Remote</Link>
+            <Link to="/remote">Remote</Link> <br />
+            <Link to="/remote/actions">Actions</Link>
           </div>
       </header>
     </div>

@@ -59,7 +59,10 @@ io.on("connection", (socket) => {
         "powerSteeringFluid", 
         "brakeFluid", 
         "transmissionFluid", 
-        "windscreenWasherFluid"
+        "windscreenWasherFluid",
+			"engine",
+			"alarm",
+			"autopilot",
     ]
 
 	for (const param of params) {
