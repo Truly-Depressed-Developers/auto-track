@@ -10,21 +10,51 @@ import { Remote } from './pages/Remote/Remote';
 import { NotFound } from './pages/NotFound/NotFound';
 import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
+import { Register } from './pages/Register/Register';
+export const MyContextLogin = React.createContext<ContextTypeLogin | null>(null);
+export const MyContextRegister = React.createContext<ContextTypeRegister | null>(null);
+
+type ContextTypeLogin = {
+  username: string,
+  setUsername: React.Dispatch<React.SetStateAction<string>>,
+  loggedIn: number,
+  setLoggedIn: React.Dispatch<React.SetStateAction<number>>,
+}
+type ContextTypeRegister = {
+  username: string,
+  setUsername: React.Dispatch<React.SetStateAction<string>>
+}
 
 function Inside() {
+  const [username, setUsername] = useState("");
+  const [loggedIn, setLoggedIn] = useState(0);
+
   return (
     <div id="App">
       <nav className='main'>
+        <div>username app: {username}</div>
+        <div>loggedIn: {loggedIn}</div>
         <div id="left">
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
           <Link to="/car">Car</Link>
           <Link to="/remote">Remote</Link>
         </div>
       </nav>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={
+          <MyContextLogin.Provider value={{ username, setUsername, loggedIn, setLoggedIn }}>
+            <Login />
+          </MyContextLogin.Provider>
+        } />
+        <Route path='/register' element={
+          <MyContextRegister.Provider value={{ username, setUsername }}>
+
+            <Register />
+          </MyContextRegister.Provider>
+        } />
         <Route path="/car" element={<Car />} />
         <Route path='/remote' element={<Remote />} />
         <Route path='*' element={<NotFound />} />
