@@ -13,21 +13,25 @@ function Actions() {
    // const [driveDirection, setDriveDirection] = useState()
    const [autopilot, setAutopilot] = useState(true);
 
-   const engineCallback = useCallback(() => {
-      setEngine(!engine);
-   }, [engine]);
+   // const engineCallback = useCallback(() => {
+   //    setEngine(!engine);
+   // }, [engine]);
 
-   const alarmCallback = useCallback(() => {
-      setAlarm(!alarm);
-   }, [alarm]);
+   // const alarmCallback = useCallback(() => {
+      
+   // }, [alarm]);
 
    // const setDriveDirectionCallback = useCallback(() => {
    //    setDriveDirectionCallback
    // }, [])
 
-   const autopilotOnCallback = useCallback(() => {
+   // const autopilotOnCallback = useCallback(() => {
 
-   }, [])
+   // }, [])
+
+   useEffect(() => { socket.emit('engine', engine) }, [socket, engine]);
+   useEffect(() => { socket.emit('alarm', alarm) }, [socket, alarm]);
+   useEffect(() => { socket.emit('autopilot', autopilot) }, [socket, autopilot]);
 
 
 
