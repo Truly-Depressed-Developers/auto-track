@@ -40,10 +40,10 @@ const LocationDisplay = withScriptjs(withGoogleMap((props: Props): JSX.Element =
 
     return (
         <div>
-            <Typography>
+            {/* <Typography>
                 lat: {lat}
                 lng: {lng}
-            </Typography>
+            </Typography> */}
             <GoogleMap
                 defaultZoom={15}
                 defaultCenter={{ lat, lng }}
