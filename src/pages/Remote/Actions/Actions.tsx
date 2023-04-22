@@ -18,7 +18,7 @@ function Actions() {
    // }, [engine]);
 
    // const alarmCallback = useCallback(() => {
-      
+
    // }, [alarm]);
 
    // const setDriveDirectionCallback = useCallback(() => {
@@ -90,42 +90,165 @@ function Actions() {
    return (
       <div className='actions-container'>
 
-         <div className="switch-container">
-            <FormControlLabel
-               control={
-                  <Switch
-                     sx={{ m: 1 }}
-                     // defaultChecked
-                     checked={engine}
-                     onChange={e => setEngine(e.target.checked)}
-                  />
-               }
-               label="Engine"
-            />
-            <FormControlLabel
-               control={
-                  <Switch
-                     sx={{ m: 1 }}
-                     // defaultChecked
-                     checked={alarm}
-                     onChange={e => setAlarm(e.target.checked)}
-                  />
-               }
-               label="Alarm"
-            />
-            <FormControlLabel
-               control={
-                  <Switch
-                     sx={{ m: 1 }}
-                     // defaultChecked
-                     checked={autopilot}
-                     onChange={e => setAutopilot(e.target.checked)}
-                  />
-               }
+         <div className="title">
+            <div className="mainTitle">ACTION</div>
+            <div className="subTitle">KR 7321R</div>
+         </div>
 
-               label="Autopilot"
-            />
+         <div className="whitePlate">
 
+            <div className="maxSpeedContainer">
+
+               <div className="label">
+                  Max Speed:
+               </div>
+
+               <div className="rightInfo">
+
+                  <input type="number" max={99} min={1} name="maxSpeed" id="maxSpeedInput" />
+                  km/h
+
+               </div>
+
+            </div>
+
+            <div className="switch-container">
+
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Alarm:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={alarm}
+                        onChange={e => setAlarm(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Lights:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={autopilot}
+                        onChange={e => setAutopilot(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Mask:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Trunk:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Front left door:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Front right door:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Air conditioning:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Heated seats:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+               <FormControlLabel
+                  control={
+                     <Switch
+                        sx={{ m: 1 }}
+                        // defaultChecked
+                        checked={engine}
+                        onChange={e => setEngine(e.target.checked)}
+                     />
+                  }
+                  labelPlacement='start'
+                  label="Heated windows:"
+                  style={{ justifyContent: 'space-between' }}
+               />
+
+               <div className="last">
+                  <FormControlLabel
+                     control={
+                        <Switch
+                           sx={{ m: 1 }}
+                           // defaultChecked
+                           checked={engine}
+                           onChange={e => setEngine(e.target.checked)}
+                        />
+                     }
+                     labelPlacement='start'
+                     label="Emergency stop procedure:"
+                     style={{ justifyContent: 'space-between' }}
+                  />
+               </div>
+
+            </div>
          </div>
       </div>
    );
