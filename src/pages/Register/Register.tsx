@@ -1,13 +1,12 @@
-import './Login.scss';
+import './Register.scss';
 import { socket } from '../../socket';
 import { useContext, useState, useEffect } from "react";
-import { MyContextLogin } from '../../App';
+import { MyContextRegister } from '../../App';
 import { sha256 } from 'js-sha256';
 
-function Login() {
-  const [usernameParent, setUsernameParent] = [useContext(MyContextLogin)?.username, useContext(MyContextLogin)?.setUsername];
+function Register() {
+  const [usernameParent, setUsernameParent] = [useContext(MyContextRegister)?.username, useContext(MyContextRegister)?.setUsername];
   const [username, setUsername] = useState("");
-  const [loggedIn, setLoggedIn] = [useContext(MyContextLogin)?.loggedIn, useContext(MyContextLogin)?.setLoggedIn];
   const [password, setPassword] = useState<string>();
 
   function updatePassword(passwd: string) {
@@ -18,34 +17,32 @@ function Login() {
     }
   }
 
-  function attemptLogin() {
+  function attemptRegister() {
     if (password && username) {
-      socket.emit("login", { "username": username, "password": password });
+      socket.emit("register", { "username": username, "password": password });
     } else {
       alert("Password or username cannot be empty!");
     }
   }
 
   useEffect(() => {
-    socket.on('loginResult', (data) => {
-      if (setLoggedIn && data.success === 1) {
-        setLoggedIn(data.success)
-        setUsernameParent ? setUsernameParent(username) : console.log("bad");
-      }
+    socket.on('registerResult', (data) => {
+      setUsernameParent ? setUsernameParent(username) : console.log("bad");
     });
-  }, [password]);
+  }, [password])
+
 
   return (
-    <div id="login">
+    <div id="register">
       <label htmlFor="login">Login</label>
       <input id="inputLogin" type="text" value={username} onChange={(e) => { setUsername ? setUsername(e.target.value) : console.warn("setter doesn't work") }} />
 
       <label htmlFor="password">Password</label>
       <input id="inputPassword" type="password" onChange={(e) => { updatePassword ? updatePassword(e.target.value) : console.warn("setter doesn't work") }} />
 
-      <button onClick={() => attemptLogin()}>Login</button>
+      <button onClick={() => attemptRegister()}>Register</button>
     </div>
   );
 }
 
-export { Login };
+export { Register };

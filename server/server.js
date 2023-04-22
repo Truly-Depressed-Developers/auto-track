@@ -18,12 +18,35 @@ const io = new socket.Server(server, {
 
 const room = "room"
 
+var authentication = {
+	username: "",
+	password: ""
+}
+
 io.on("connection", (socket) => {
 	socket.join(room)
 	console.log("New client connected");
 
 	socket.on("disconnect", () => {
 		console.log("Client disconnected");
+	});
+
+
+	socket.on("login", (data) => {
+		let success = 0;
+		data.username == authentication.username && data.password == authentication.password ? success = 1 : 0;
+		io.to(room).emit("loginResult", { "success": success })
+	});
+
+	socket.on("register", (data) => {
+		let success = 0;
+
+		authentication.username = data.username;
+		authentication.password = data.password;
+
+		authentication.username !== "" && authentication.password !== "" ? success = 1 : 0;
+		io.to(room).emit("registerResult", { "success": success })
+		console.log("actioned", "username", authentication.username, "password", authentication.password)
 	});
 
 	const params = [
@@ -38,6 +61,7 @@ io.on("connection", (socket) => {
         "transmissionFluid", 
         "windscreenWasherFluid"
     ]
+
 	for (const param of params) {
 		socket.on(param, data => socket.to(room).emit(param, data))
 	}
