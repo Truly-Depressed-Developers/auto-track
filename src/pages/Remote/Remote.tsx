@@ -31,8 +31,6 @@ function Remote() {
     const [windscreenWasherFluid, setWindscreenWasherFluid] = useState(0);
     useEffect(() => { socket.on('windscreenWasherFluid', setWindscreenWasherFluid) }, [socket, windscreenWasherFluid]);
 
-    const [location, setLocation] = useState('');
-    useEffect(() => { socket.on('location', setLocation) }, [socket, location]);
 
     return (
         <div>
@@ -47,7 +45,13 @@ function Remote() {
                 transmissionFluid={transmissionFluid}
                 windscreenWasherFluid={windscreenWasherFluid}
             />
-            <LocationDisplay lat={parseFloat(location.split(" ")[0])} lng={parseFloat(location.split(" ")[1])}/>
+            {/* <LocationDisplay lat={parseFloat(location.split(" ")[0])} lng={parseFloat(location.split(" ")[1])}/> */}
+            <LocationDisplay
+				googleMapURL={`https://maps.googleapis.com/maps/api/js?key=`}
+				loadingElement={<div style={{ height: `100%` }} />}
+				containerElement={<div style={{ height: `360px`, width: `360px` }} />}
+				mapElement={<div style={{ height: `100%` }} />}
+			/>
         </div>
     );
 }
