@@ -42,3 +42,29 @@
     transform: rotate(360deg);
   }
 }
+#car {
+    #pressure {
+        width: 88%;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    width: 600px;
+    grid-template-columns: 260px 200px !important;
+    font-size: 24px;
+    input {
+        height: 20px;
+        // padding: 0;
+        margin: 0;
+        padding: 6px 10px;
+        font-size: 20px;
+    }
+    label {
+        // width: 198px;
+        text-align: right;
+    }
+    input[type='checkbox'] {
+        margin-top: 9px;
+    }
+}
+
