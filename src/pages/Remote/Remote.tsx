@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Remote.scss';
+import { SpeedDisplay } from "../../components/SpeedDisplay";
+import { socket } from '../../socket'
 
 function Remote() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Podstrona remote
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [speed, setSpeed] = useState(0);
+
+    // useEffect(() => {
+    //     socket.on('speed', (data) => setSpeed(data));
+    // }, [socket, speed]);
+
+    return (
+        <div>
+            <SpeedDisplay
+                speed={speed}
+            />
+        </div>
+    );
 }
 
 export { Remote };
