@@ -63,6 +63,7 @@ io.on("connection", (socket) => {
 			"engine",
 			"alarm",
 			"autopilot",
+        "location",
     ]
 
 	for (const param of params) {

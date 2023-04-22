@@ -35,6 +35,9 @@ function Car() {
   const [autopilot, setAutopilot] = useState(false);
   useEffect(() => { socket.on('autopilot', setAutopilot); console.log(autopilot) }, [socket, autopilot]);
 
+    const [location, setLocation] = useState("50.068132 19.912979");
+    useEffect(() => { socket.emit('location', location) }, [socket, location]);
+
   return (
     <div className="App">
       <header className="App-header">
