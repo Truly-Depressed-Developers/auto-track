@@ -8,12 +8,9 @@ function Home() {
     <div className="App">
       <header className="App-header">
           <div id="left">
-            <Link to="/">Home</Link>
-            <br />
             <Link to="/car">Car</Link>
             <br />
             <Link to="/remote">Remote</Link> <br />
-            <Link to="/remote/actions">Actions</Link>
           </div>
       </header>
     </div>
