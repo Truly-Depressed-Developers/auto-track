@@ -41,7 +41,7 @@ function Car() {
   return (
     <div className="App">
       <header className="App-header">
-        <form>
+        <form id="car">
           <label htmlFor="speed">Speed</label>
           <input type="number" id="speed" value={speed} onChange={e => { setSpeed(parseInt(e.target.value)) }} />
 
