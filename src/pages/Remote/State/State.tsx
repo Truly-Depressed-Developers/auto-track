@@ -31,7 +31,7 @@ function State() {
     useEffect(() => { socket.on('windscreenWasherFluid', setWindscreenWasherFluid) }, [socket, windscreenWasherFluid]);
 
     return (
-        <div>
+        <div className='state-container'>
             <SpeedDisplay speed={speed}/>
             <FuelDisplay fuel={fuel} range={range}/>
             <WheelPressureDisplay pressure={wheelPressure}/>

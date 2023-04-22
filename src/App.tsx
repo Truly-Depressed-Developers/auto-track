@@ -14,6 +14,10 @@ import { Actions } from './pages/Remote/Actions/Actions';
 import { State } from './pages/Remote/State/State';
 import { Location } from './pages/Remote/Location/Location';
 import { Register } from './pages/Register/Register';
+
+// import 'google-fonts/fonts.css';
+// import 'google-fonts/fonts/Roboto.css';
+
 export const MyContextLogin = React.createContext<ContextTypeLogin | null>(null);
 export const MyContextRegister = React.createContext<ContextTypeRegister | null>(null);
 
