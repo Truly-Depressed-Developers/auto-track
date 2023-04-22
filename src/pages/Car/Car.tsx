@@ -83,10 +83,10 @@ function Car() {
           <label htmlFor="engine">engine</label>
           <input type="checkbox" id="engine" checked={engine} disabled />
 
-          <label htmlFor="alarm">alarm</label>
+          <label htmlFor="alarm">light</label>
           <input type="checkbox" id="alarm" checked={alarm} disabled />
 
-          <label htmlFor="autopilot">autopilot</label>
+          <label htmlFor="autopilot">mask</label>
           <input type="checkbox" id="autopilot" checked={autopilot} disabled />
         </form>
       </header>
