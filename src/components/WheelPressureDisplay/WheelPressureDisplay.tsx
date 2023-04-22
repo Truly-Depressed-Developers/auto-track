@@ -2,14 +2,14 @@ import "./WheelPressureDisplay.scss";
 import { Typography } from "@mui/material";
 
 type Props = {
-    pressure: number,
+    pressure: number[],
 }
 
 const WheelPressureDisplay = (props: Props): JSX.Element => {
     return (
         <div>
             <Typography>
-                Wheel pressure: {props.pressure} psi
+                Wheel pressure: {props.pressure.join(", ")} psi
             </Typography>
         </div>
     );
