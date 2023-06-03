@@ -3,7 +3,7 @@
 **AutoTrack** is our solution for remote car access. It allows to check the state of the car, take actions and locate the car.
  
 ## Motivation
-AutoTrack was created at [HackAGH](https://hack.samorzad.agh.edu.pl/) Hackathon and got 🥉 3rd place.
+AutoTrack was created at [HackAGH](https://hack.samorzad.agh.edu.pl/) Hackathon and won 🥉 3rd place.
 
 - **Topic:** Stwórz rozwiązanie do zdalnej komunikacji z samochodem, które pozwoli właścicielowi podjąć wybraną akcję za pomocą np. smartfona czy kluczyków.
 Przeprowadź symulację przykładowego zastosowania swojego rozwiązania w wybranej przez siebie sytuacji (np. kradzież pojazdu).
