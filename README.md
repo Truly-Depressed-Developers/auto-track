@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# AutoTrack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**AutoTrack** is our solution for remote car access. It allows to check the state of the car, take actions and locate the car.
+ 
+## Motivation
+AutoTrack was created at [HackAGH](https://hack.samorzad.agh.edu.pl/) Hackathon and got 🥉 3rd place.
 
-## Available Scripts
+- **Topic:** Stwórz rozwiązanie do zdalnej komunikacji z samochodem, które pozwoli właścicielowi podjąć wybraną akcję za pomocą np. smartfona czy kluczyków.
+Przeprowadź symulację przykładowego zastosowania swojego rozwiązania w wybranej przez siebie sytuacji (np. kradzież pojazdu).
+Twoje rozwiązanie powinno pokazywać bieżącą lokalizację i podstawowe informacje o pojeździe oraz umożliwić uruchomienie niektórych funkcji - może być to np. włączenie alarmu, świateł, a może ograniczenie maksymalnej prędkości, którą może poruszac się samochód?
 
-In the project directory, you can run:
+- Timeframe: 22 April 2023, 12 hours
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Sign up and log in
+- Check car state (speed, fuel, tire pressure and fluids)
+- Take action (set max speed, open trunk, etc.)
+- Check solar panel condition
+- Locate the car
+- Save and load user preferences
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Client
+<img src="https://img.shields.io/badge/Typescript-3178C6?logo=TypeScript&logoColor=white&style=for-the-badge"/> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/> <img src="https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=61DAFB"/>
 
-### `npm run build`
+### Server (car imitation)
+<img src="https://img.shields.io/badge/Node.js-339933?logo=Node.js&logoColor=white&style=for-the-badge"/> <img src="https://img.shields.io/badge/Express-000000?logo=Express&logoColor=white&style=for-the-badge"/> <img src="https://img.shields.io/badge/Typescript-3178C6?logo=TypeScript&logoColor=white&style=for-the-badge"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="./media/367.png">
+<img src="./media/1254.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Authors
 
-### `npm run eject`
+- [@BPajda](https://github.com/BPajda)
+- [@MBrosik](https://github.com/MBrosik)
+- [@MSiorr](https://github.com/MSiorr)
+- [@rjodlowski](https://github.com/rjodlowski)
+- [@rubikon02](https://github.com/rubikon02)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under [MIT](./LICENSE) license.
